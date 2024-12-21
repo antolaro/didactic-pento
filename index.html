@@ -14,18 +14,18 @@
         <p>Ici sera la destination de 2025.</p>
         <p>Amusez-vous bien et reviens vite avec tes amis pour t'amuser!</p>
 
-
-
-        
         <!-- Afficher la date du jour -->
         <p>Aujourd'hui le : <span id="date"></span></p>
+
+        <!-- Compte à rebours avant Noël -->
+        <p>Temps restant avant Noël : <span id="countdown"></span></p>
     </main>
     <footer>
         <p>&copy; 2024 ATL Media LLC</p>
     </footer>
 
     <script>
-        // Obtenir la date du jour
+        // Afficher la date du jour
         const today = new Date();
         const dateString = today.toLocaleDateString('fr-FR', {
             weekday: 'long',  // Jour de la semaine
@@ -33,9 +33,30 @@
             month: 'long',    // Mois
             day: 'numeric'    // Jour du mois
         });
-
-        // Insérer la date dans la page
         document.getElementById('date').textContent = dateString;
+
+        // Définir la date de Noël
+        const christmasDate = new Date('December 25, 2024 00:00:00');
+
+        // Fonction de mise à jour du compte à rebours
+        function updateCountdown() {
+            const now = new Date();
+            const timeRemaining = christmasDate - now;
+
+            // Calcul des jours, heures, minutes restantes
+            const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+
+            // Affichage du compte à rebours
+            document.getElementById('countdown').textContent = `${days} jours, ${hours} heures, ${minutes} minutes`;
+        }
+
+        // Mettre à jour le compte à rebours toutes les minutes
+        setInterval(updateCountdown, 60000);
+
+        // Initialiser le compte à rebours dès le début
+        updateCountdown();
     </script>
 </body>
 </html>
