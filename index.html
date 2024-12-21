@@ -8,14 +8,31 @@
 </head>
 <body>
     <header>
-        <h1>Bienvenue sur mon espace virtuelle !</h1>
+        <h1>Bienvenue sur mon espace virtuel !</h1>
     </header>
     <main>
         <p>Ici sera la destination de 2025.</p>
-        <p>Amusez-vous bien et reviens vite avec tes amis pour t'amuser!</p>
+        <p>Amusez-vous bien et reviens vite avec tes amis pour t'amuser!</p>
+
+        <!-- Afficher la date du jour -->
+        <p>La date du jour est : <span id="date"></span></p>
     </main>
     <footer>
         <p>&copy; 2024 ATL Media LLC</p>
     </footer>
+
+    <script>
+        // Obtenir la date du jour
+        const today = new Date();
+        const dateString = today.toLocaleDateString('fr-FR', {
+            weekday: 'long',  // Jour de la semaine
+            year: 'numeric',  // Année
+            month: 'long',    // Mois
+            day: 'numeric'    // Jour du mois
+        });
+
+        // Insérer la date dans la page
+        document.getElementById('date').textContent = dateString;
+    </script>
 </body>
 </html>
