@@ -1,30 +1,89 @@
+/* Général */
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
     color: #333;
 }
 
-header {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
+h1, p {
+    margin: 0;
+    padding: 10px;
 }
 
+/* Header */
+header {
+    background-color: #4CAF50; /* Couleur de fond verte */
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+/* Main Content */
 main {
     padding: 20px;
     text-align: center;
 }
 
+/* Date et compte à rebours */
+p#date, p#countdown {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 20px 0;
+    color: #555;
+}
+
+/* Lien */
+a {
+    color: #4CAF50; /* Couleur du lien verte */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #45a049; /* Changer la couleur du lien au survol */
+    text-decoration: underline;
+}
+
+/* Footer */
 footer {
     background-color: #333;
     color: white;
     text-align: center;
-    padding: 10px 0;
+    padding: 10px;
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+footer p {
+    font-size: 1em;
+}
+
+/* Effet sur le compte à rebours */
+#countdown {
+    font-size: 1.5em;
+    color: #ff5733; /* Couleur rouge pour attirer l'attention */
+}
+
+/* Design Responsive */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    p#date, p#countdown {
+        font-size: 1em;
+    }
 }
