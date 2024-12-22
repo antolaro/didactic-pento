@@ -7,13 +7,24 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Fenêtre pop-up d'accueil -->
+    <div id="welcomePopup" class="popup">
+        <div class="popup-content">
+            <span id="closePopup" class="close">&times;</span>
+            <h2>Bienvenue sur notre site!</h2>
+            <p>La date et l'heure actuelles sont : <span id="currentDateTime"></span></p>
+            <p><strong>Faites vite pour enregistrer la date de notre prochain show !</strong></p>
+        </div>
+    </div>
+
+    <header>
+        <h1>Welcome ! You find me :-) </h1>
+    </header>
 
     <main>
-        <!-- Section Message d'Accueil -->
-        <section id="welcomeSection">
-            <h2 id="welcomeMessage"></h2>
-            <p id="currentDate"></p>
-            <p id="urgentMessage"></p>
+        <section>
+            <p>Ici sera la destination de 2025.</p>
+            <p>Amusez-vous bien et reviens vite avec tes amis pour t'amuser!</p>
         </section>
 
         <section>
@@ -25,15 +36,13 @@
         </section>
 
         <section>
-            <p>Want to play with me : <a href="https://chaturbate.com/enourmouscok/" target="_blank">Click here</a></p>
-            <p id="linkClickCount">0</p> <!-- Afficher le nombre de clics -->
+            <p>Want to play with me : <a href="https://chaturbate.com/enourmouscok/" target="_blank">Click here </a></p>
         </section>
 
         <section>
             <h2>Visits :</h2>
             <p id="visitorCount">0</p>
         </section>
-
     </main>
 
     <footer>
@@ -41,86 +50,46 @@
     </footer>
 
     <script>
-        // Fonction pour afficher la date, l'heure actuelle et le message d'urgence
-        function displayWelcomeMessage() {
-            const today = new Date();
-            const currentDateTime = today.toLocaleString('fr-FR', {
-                weekday: 'long',  // Jour de la semaine
-                year: 'numeric',  // Année
-                month: 'long',    // Mois
-                day: 'numeric',   // Jour du mois
-                hour: 'numeric',  // Heure
-                minute: 'numeric',// Minute
-                second: 'numeric' // Seconde
-            });
+        // Afficher la date et l'heure actuelle dans le pop-up
+        const currentDateTime = new Date();
+        document.getElementById('currentDateTime').textContent = currentDateTime.toLocaleString('fr-FR');
 
-            // Message d'accueil
-            const welcomeMessage = `Bienvenue sur le site! Il est actuellement ${currentDateTime}.`;
+        // Fermer la fenêtre pop-up
+        const closePopup = document.getElementById('closePopup');
+        const welcomePopup = document.getElementById('welcomePopup');
 
-            // Message d'urgence en gros et en gras
-            const urgentMessage = "Vite! Ne manquez pas le prochain show, réservez votre place maintenant!";
-
-            // Insère le texte dans les éléments correspondants
-            document.getElementById('welcomeMessage').textContent = welcomeMessage;
-            document.getElementById('currentDate').textContent = `Date et heure actuelle : ${currentDateTime}`;
-            document.getElementById('urgentMessage').textContent = urgentMessage;
-            
-            // Style du message urgent : en gros et en gras
-            document.getElementById('urgentMessage').style.fontWeight = 'bold';
-            document.getElementById('urgentMessage').style.fontSize = '2rem';  // Grand texte
+        closePopup.onclick = function() {
+            welcomePopup.style.display = 'none';
         }
 
-        // Appeler la fonction quand la page est chargée
-        window.onload = displayWelcomeMessage;
+        // Afficher la fenêtre pop-up quand la page est chargée
+        window.onload = function() {
+            welcomePopup.style.display = 'block';
+        }
 
-        // Compteur de clics pour le lien
-        let linkClickCount = localStorage.getItem('linkClickCount') || 0;
-        const link = document.querySelector('a[href="https://chaturbate.com/enourmouscok/"]');
-
-        // Incrémenter le compteur chaque fois que le lien est cliqué
-        link.addEventListener('click', () => {
-            linkClickCount++;
-            localStorage.setItem('linkClickCount', linkClickCount);
-            document.getElementById('linkClickCount').textContent = linkClickCount;
-        });
-
-        // Afficher le compteur de visites
-        let count = parseInt(localStorage.getItem('visitCount')) || 0;
-        count++;
-        localStorage.setItem('visitCount', count);
-        document.getElementById('visitorCount').textContent = count;
-
-        // Afficher la date du jour
+        // Compte à rebours et autres scripts restent inchangés
         const today = new Date();
         const dateString = today.toLocaleDateString('fr-FR', {
-            weekday: 'long',  // Jour de la semaine
-            year: 'numeric',  // Année
-            month: 'long',    // Mois
-            day: 'numeric'    // Jour du mois
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
         });
         document.getElementById('date').textContent = dateString;
 
-        // Définir la date de Noël
         const christmasDate = new Date('December 23, 2024 22:00:00');
-
-        // Fonction de mise à jour du compte à rebours
         function updateCountdown() {
             const now = new Date();
             const timeRemaining = christmasDate - now;
 
-            // Calcul des jours, heures, minutes restantes
             const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
             const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
 
-            // Affichage du compte à rebours
             document.getElementById('countdown').textContent = `${days} jours, ${hours} heures, ${minutes} minutes`;
         }
 
-        // Mettre à jour le compte à rebours toutes les minutes
         setInterval(updateCountdown, 60000);
-
-        // Initialiser le compte à rebours dès le début
         updateCountdown();
     </script>
 </body>
