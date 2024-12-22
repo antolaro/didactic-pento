@@ -58,7 +58,7 @@ footer {
     background-color: #333;
     color: white;
     text-align: center;
-    padding: 5px; /* Réduction de la hauteur du footer */
+    padding: 3px; /* Réduction de la hauteur du footer */
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -76,7 +76,7 @@ section {
 /* Design Responsive */
 @media (max-width: 768px) {
     body {
-        font-size: 14px;
+        font-size: 13px;
     }
 
     header h1 {
