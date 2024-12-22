@@ -10,7 +10,7 @@
     <!-- Fenêtre pop-up d'accueil -->
     <div id="welcomePopup" class="popup">
         <div class="popup-content">
-            <span id="closePopup" class="close">&times;</span>
+            <button id="closePopupButton" class="close-btn">&times;</button>
             <p><strong>Faites vite pour enregistrer la date de notre prochain show !</strong></p>
         </div>
     </div>
@@ -49,10 +49,10 @@
 
     <script>
         // Fermer la fenêtre pop-up
-        const closePopup = document.getElementById('closePopup');
+        const closePopupButton = document.getElementById('closePopupButton');
         const welcomePopup = document.getElementById('welcomePopup');
 
-        closePopup.onclick = function() {
+        closePopupButton.onclick = function() {
             welcomePopup.style.display = 'none';
         }
 
