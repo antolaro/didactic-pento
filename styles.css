@@ -37,19 +37,21 @@ body {
     margin-bottom: 20px;
 }
 
-.popup button {
-    background-color: #ff4081; /* Bouton rose vif */
+/* Bouton de fermeture */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
     color: white;
-    font-size: 1.2em;
-    padding: 10px 20px;
+    font-size: 2em;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: color 0.3s ease;
 }
 
-.popup button:hover {
-    background-color: #f50057; /* Bouton plus foncé au survol */
+.close-btn:hover {
+    color: #ff4081; /* Changement de couleur au survol */
 }
 
 /* Sections principales */
