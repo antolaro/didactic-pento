@@ -1,10 +1,14 @@
 /* Général */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #1e1e1e; /* Fond sombre */
-    color: #f5f5f5; /* Texte clair */
+    background-color: #f0f0f0; /* Fond clair inspiré de Geary */
+    color: #333; /* Texte sombre pour plus de lisibilité */
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Fenêtre Pop-up */
@@ -22,14 +26,14 @@ body {
 }
 
 .popup-content {
-    background-color: #2d2d2d; /* Fond de la pop-up */
-    color: #fff;
-    padding: 20px;
+    background-color: #fff; /* Fond clair pour la pop-up */
+    color: #333; /* Texte sombre */
+    padding: 30px;
     border-radius: 10px;
     text-align: center;
     width: 80%;
     max-width: 500px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .popup h2 {
@@ -43,7 +47,7 @@ body {
     top: 10px;
     right: 10px;
     background-color: transparent;
-    color: white;
+    color: #333;
     font-size: 2em;
     border: none;
     cursor: pointer;
@@ -57,15 +61,18 @@ body {
 /* Sections principales */
 main {
     padding: 40px 10%;
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
 }
 
 /* Sections individuelles */
 section {
     margin-bottom: 40px;
-    background-color: #333; /* Arrière-plan des sections */
-    padding: 20px;
+    background-color: #fff; /* Arrière-plan blanc pour chaque section */
+    padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Compte à rebours et message */
@@ -94,8 +101,6 @@ footer {
     color: white;
     text-align: center;
     padding: 10px 0;
-    position: fixed;
-    bottom: 0;
     width: 100%;
     font-size: 0.9em;
 }
@@ -107,7 +112,7 @@ footer {
     }
 
     section {
-        padding: 15px;
+        padding: 20px;
     }
 
     .popup-content {
