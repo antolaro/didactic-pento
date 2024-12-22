@@ -48,10 +48,6 @@
     </footer>
 
     <script>
-        // Afficher la date et l'heure actuelle dans le pop-up
-        const currentDateTime = new Date();
-        document.getElementById('currentDateTime').textContent = currentDateTime.toLocaleString('fr-FR');
-
         // Fermer la fenêtre pop-up
         const closePopup = document.getElementById('closePopup');
         const welcomePopup = document.getElementById('welcomePopup');
@@ -65,7 +61,7 @@
             welcomePopup.style.display = 'block';
         }
 
-        // Compte à rebours et autres scripts restent inchangés
+        // Affichage de la date actuelle dans le format français
         const today = new Date();
         const dateString = today.toLocaleDateString('fr-FR', {
             weekday: 'long',
@@ -75,6 +71,7 @@
         });
         document.getElementById('date').textContent = dateString;
 
+        // Compte à rebours jusqu'au 23 décembre 2024
         const christmasDate = new Date('December 23, 2024 22:00:00');
         function updateCountdown() {
             const now = new Date();
