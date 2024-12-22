@@ -47,6 +47,42 @@
 </section>
 
 <script>
+    // Charger les commentaires au démarrage
+    function loadComments() {
+        const savedComments = JSON.parse(localStorage.getItem('comments')) || [];
+        const commentsSection = document.getElementById('commentsSection');
+        savedComments.forEach(comment => {
+            const newComment = document.createElement('p');
+            newComment.textContent = comment;
+            commentsSection.appendChild(newComment);
+        });
+    }
+
+    // Ajouter un commentaire
+    function addComment() {
+        const commentInput = document.getElementById('commentInput');
+        const commentsSection = document.getElementById('commentsSection');
+        const commentValue = commentInput.value.trim();
+        if (commentValue) {
+            const newComment = document.createElement('p');
+            newComment.textContent = commentValue;
+            commentsSection.appendChild(newComment);
+
+            // Sauvegarder dans le Local Storage
+            const savedComments = JSON.parse(localStorage.getItem('comments')) || [];
+            savedComments.push(commentValue);
+            localStorage.setItem('comments', JSON.stringify(savedComments));
+
+            commentInput.value = ''; // Réinitialise l'entrée
+        }
+    }
+
+    // Charger les commentaires au démarrage de la page
+    loadComments();
+</script>
+
+
+<script>
     function addComment() {
         const commentInput = document.getElementById('commentInput');
         const commentsSection = document.getElementById('commentsSection');
