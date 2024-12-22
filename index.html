@@ -31,13 +31,18 @@
             <p>Want to play with me : <a href="https://chaturbate.com/enourmouscok/" target="_blank">Click here </a></p>
         </section>
 
-        <section>
-    <h2>Contactez-moi</h2>
-    <form action="mailto:ton-email@example.com" method="POST" enctype="text/plain">
-        <label for="name">Nom :</label>
-        <input type="text" id="name" name="name" required>
-        <br>
-        <label for="email">E-mail :</
+     <section>
+    <h2>Visiteurs :</h2>
+    <p id="visitorCount">0</p>
+</section>
+
+<script>
+    let count = parseInt(localStorage.getItem('visitCount')) || 0;
+    count++;
+    localStorage.setItem('visitCount', count);
+    document.getElementById('visitorCount').textContent = count;
+</script>
+
 
     </main>
     <footer>
