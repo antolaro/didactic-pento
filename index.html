@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <h1>Welcome! You found me :-) </h1>
+        <h1>Welcome ! You found me :-) </h1>
     </header>
     <main>
         <section>
@@ -18,25 +18,26 @@
 
         <section>
             <!-- Afficher la date du jour -->
-            <p>Today's date :<br> <span id="date"></span></p>
+            <p>Today's date :</p>
+            <div id="date"></div>
         </section>
 
         <section>
-            <!-- Compte à rebours avant le prochain événement -->
-            <p>Time before next run:<br>  <span id="countdown"></span></p>
+            <!-- Compte à rebours avant le prochain show -->
+            <p>Time before next run :</p>
+            <div id="countdown"></div>
         </section>
 
         <section>
-            <!-- Lien vers votre page Chaturbate avec compteur de clics -->
-            <p>Want to play with me: 
-                <a id="chaturbateLink" href="https://chaturbate.com/enourmouscok/" target="_blank">Click here</a>
-            </p>
-            <p>Number of clicks: <span id="clickCounter">0</span></p>
+            <!-- Lien vers votre page -->
+            <p>Want to play with me :</p>
+            <a href="https://chaturbate.com/enourmouscok/" target="_blank" onclick="incrementClickCounter()">Click here</a>
+            <p>Link clicked <span id="clickCount">0</span> times.</p>
         </section>
 
         <section>
             <!-- Compteur de visites -->
-            <h2>Visits:</h2>
+            <h2>Visits :</h2>
             <p id="visitorCount">0</p>
         </section>
     </main>
@@ -55,13 +56,13 @@
         });
         document.getElementById('date').textContent = dateString;
 
-        // Définir la date de l'événement
-        const eventDate = new Date('December 23, 2024 22:00:00');
+        // Définir la date de Noël
+        const christmasDate = new Date('December 23, 2024 22:00:00');
 
         // Fonction de mise à jour du compte à rebours
         function updateCountdown() {
             const now = new Date();
-            const timeRemaining = eventDate - now;
+            const timeRemaining = christmasDate - now;
 
             // Calcul des jours, heures, minutes restantes
             const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
@@ -69,7 +70,7 @@
             const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
 
             // Affichage du compte à rebours
-            document.getElementById('countdown').textContent = `${days} days, ${hours} hours, ${minutes} minutes`;
+            document.getElementById('countdown').textContent = `${days} jours, ${hours} heures, ${minutes} minutes`;
         }
 
         // Mettre à jour le compte à rebours toutes les minutes
@@ -78,16 +79,15 @@
         // Initialiser le compte à rebours dès le début
         updateCountdown();
 
-        // Compteur de clics pour le lien
+        // Compteur de clics sur le lien
         let clickCount = parseInt(localStorage.getItem('clickCount')) || 0;
-        document.getElementById('clickCounter').textContent = clickCount;
+        document.getElementById('clickCount').textContent = clickCount;
 
-        const link = document.getElementById('chaturbateLink');
-        link.addEventListener('click', () => {
+        function incrementClickCounter() {
             clickCount++;
             localStorage.setItem('clickCount', clickCount);
-            document.getElementById('clickCounter').textContent = clickCount;
-        });
+            document.getElementById('clickCount').textContent = clickCount;
+        }
 
         // Compteur de visites
         let visitCount = parseInt(localStorage.getItem('visitCount')) || 0;
