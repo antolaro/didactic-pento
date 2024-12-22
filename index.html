@@ -22,7 +22,7 @@
         </section>
 
         <section>
-            <!-- Compte à rebours avant Noël -->
+            <!-- Compte à rebours avant next show -->
             <p>Time before next run :<br><br> <span id="countdown"></span></p>
         </section>
 
@@ -32,7 +32,7 @@
         </section>
 
      <section>
-    <h2>Visiteurs :</h2>
+    <h2>Visits :</h2>
     <p id="visitorCount">0</p>
 </section>
 
@@ -42,6 +42,22 @@
     localStorage.setItem('visitCount', count);
     document.getElementById('visitorCount').textContent = count;
 </script>
+
+        <section>
+    <h2>Contactez-moi</h2>
+    <form action="mailto:a.larochelle.36@gmail.com" method="POST" enctype="text/plain">
+        <label for="name">Nom :</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <label for="email">E-mail :</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+        <label for="message">Message :</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        <br>
+        <button type="submit">Envoyer</button>
+    </form>
+</section>
 
 
     </main>
