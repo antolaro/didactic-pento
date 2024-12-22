@@ -1,114 +1,81 @@
-/* Style général pour la page */
+/* Fenêtre pop-up */
+.popup {
+    display: none; /* Cache la pop-up par défaut */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+    z-index: 1000;
+    padding-top: 100px;
+}
+
+.popup-content {
+    background-color: white;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%;
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+
+/* Style général pour le reste de la page */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-}
-
-/* Section du message d'accueil */
-#welcomeSection {
-    background-color: #ffcc00;
-    text-align: center;
-    padding: 30px;
-}
-
-#welcomeMessage {
-    font-size: 1.8rem;
-    font-weight: bold;
-}
-
-#currentDate {
-    font-size: 1.2rem;
     color: #333;
 }
 
-#urgentMessage {
-    font-size: 2rem;
-    font-weight: bold;
-    color: red;
-}
-
-/* Style pour les sections */
-section {
-    margin: 20px auto;
-    padding: 15px;
-    width: 60%;
-    max-width: 900px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Compte à rebours */
-#countdown {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #333;
-}
-
-/* Style pour les liens et compteurs */
-a {
-    text-decoration: none;
-    color: #007bff;
-}
-
-a:hover {
-    color: #0056b3;
-}
-
-#linkClickCount {
-    font-size: 1rem;
-    color: green;
-    font-weight: bold;
-}
-
-#visitorCount {
-    font-size: 1rem;
-    color: blue;
-    font-weight: bold;
-}
-
-/* Section des liens pour les événements */
-#calendarLinks {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    text-align: center;
-}
-
-#calendarLinks a {
-    font-size: 1.2rem;
-    padding: 10px;
-    border: 2px solid #007bff;
-    background-color: #f4f4f4;
-    color: #007bff;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-#calendarLinks a:hover {
-    background-color: #007bff;
+header {
+    background-color: #333;
     color: #fff;
+    text-align: center;
+    padding: 10px 0;
 }
 
-#calendarLinks a:active {
-    transform: scale(0.98);
-}
-
-/* Footer */
 footer {
     background-color: #333;
-    color: white;
+    color: #fff;
     text-align: center;
-    padding: 3px 0;
-    position: fixed;
+    padding: 10px 0;
+    position: absolute;
     bottom: 0;
     width: 100%;
-    font-size: 0.9rem;
 }
 
-/* Ajout d'un petit dégagement autour des sections */
 main {
     padding: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+    background-color: white;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+h1, h2 {
+    font-size: 24px;
+}
+
+p {
+    font-size: 16px;
 }
