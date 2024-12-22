@@ -36,6 +36,30 @@
     <p id="visitorCount">0</p>
 </section>
 
+<section>
+    <h2>Livre d'or</h2>
+    <textarea id="commentInput" placeholder="Écrivez un commentaire..." rows="4" cols="50"></textarea>
+    <br>
+    <button onclick="addComment()">Envoyer</button>
+    <div id="commentsSection">
+        <h3>Commentaires :</h3>
+    </div>
+</section>
+
+<script>
+    function addComment() {
+        const commentInput = document.getElementById('commentInput');
+        const commentsSection = document.getElementById('commentsSection');
+        if (commentInput.value.trim()) {
+            const newComment = document.createElement('p');
+            newComment.textContent = commentInput.value;
+            commentsSection.appendChild(newComment);
+            commentInput.value = ''; // Réinitialise l'entrée
+        }
+    }
+</script>
+
+        
 <script>
     let count = parseInt(localStorage.getItem('visitCount')) || 0;
     count++;
