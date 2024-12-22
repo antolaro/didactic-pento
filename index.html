@@ -8,36 +8,35 @@
 </head>
 <body>
     <header>
-        <h1>Welcome ! <br> You found me :-) </h1>
+        <h1>Welcome ! You found me :-)</h1>
     </header>
     <main>
         <section>
             <p>Ici sera la destination de 2025.</p>
-            <p>Amusez-vous bien et revenez vite avec vos amis pour vous amuser !</p>
+            <p>Amusez-vous bien et reviens vite avec tes amis pour t'amuser!</p>
         </section>
 
         <section>
             <!-- Afficher la date du jour -->
-            <p>Today's date :</p>
-            <div id="date"></div>
+            <p>Date du jour :</p>
+            <p id="date"></p>
         </section>
 
         <section>
-            <!-- Compte à rebours avant le prochain show -->
-            <p>Time before next run :</p>
-            <div id="countdown"></div>
+            <!-- Compte à rebours avant l'événement -->
+            <p>Temps restant avant le prochain événement :</p>
+            <p id="countdown"></p>
+            <p>Date de fin : <span id="endDate"></span></p>
         </section>
 
         <section>
-            <!-- Lien vers votre page -->
-            <p>Want to play with me :</p>
-            <a href="https://chaturbate.com/enourmouscok/" target="_blank" onclick="incrementClickCounter()">Click here</a>
-            <p>Link clicked <span id="clickCount">0</span> times.</p>
+            <!-- Lien avec compteur de clics -->
+            <p>Want to play with me : <a href="https://chaturbate.com/enourmouscok/" target="_blank" onclick="trackClick()">Click here</a></p>
+            <p>Nombre de clics : <span id="clickCount">0</span></p>
         </section>
 
         <section>
-            <!-- Compteur de visites -->
-            <h2>Visits :</h2>
+            <h2>Visites :</h2>
             <p id="visitorCount">0</p>
         </section>
     </main>
@@ -56,21 +55,36 @@
         });
         document.getElementById('date').textContent = dateString;
 
-        // Définir la date de Noël
-        const christmasDate = new Date('December 23, 2024 22:00:00');
+        // Définir la date de fin du compte à rebours
+        const countdownEndDate = new Date('December 23, 2024 22:00:00');
 
         // Fonction de mise à jour du compte à rebours
         function updateCountdown() {
             const now = new Date();
-            const timeRemaining = christmasDate - now;
+            const timeRemaining = countdownEndDate - now;
 
-            // Calcul des jours, heures, minutes restantes
-            const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            if (timeRemaining > 0) {
+                // Calcul des jours, heures, minutes restantes
+                const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
 
-            // Affichage du compte à rebours
-            document.getElementById('countdown').textContent = `${days} jours, ${hours} heures, ${minutes} minutes`;
+                // Affichage du compte à rebours
+                document.getElementById('countdown').textContent = `${days} jours, ${hours} heures, ${minutes} minutes`;
+            } else {
+                document.getElementById('countdown').textContent = 'L\'événement a commencé!';
+            }
+
+            // Affichage de la date de fin
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric', 
+                hour: '2-digit', 
+                minute: '2-digit' 
+            };
+            document.getElementById('endDate').textContent = countdownEndDate.toLocaleDateString('fr-FR', options);
         }
 
         // Mettre à jour le compte à rebours toutes les minutes
@@ -79,11 +93,11 @@
         // Initialiser le compte à rebours dès le début
         updateCountdown();
 
-        // Compteur de clics sur le lien
+        // Compteur de clics pour le lien
         let clickCount = parseInt(localStorage.getItem('clickCount')) || 0;
         document.getElementById('clickCount').textContent = clickCount;
 
-        function incrementClickCounter() {
+        function trackClick() {
             clickCount++;
             localStorage.setItem('clickCount', clickCount);
             document.getElementById('clickCount').textContent = clickCount;
